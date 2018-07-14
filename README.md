@@ -22,3 +22,5 @@
   iter = str.insert(iter, ',');
   ```
 
+* http://www.cplusplus.com/reference/string/string/insert/
+
