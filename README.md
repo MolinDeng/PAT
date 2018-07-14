@@ -24,3 +24,7 @@
 
 * http://www.cplusplus.com/reference/string/string/insert/
 
+## 1002
+
+* two-way merge
+
