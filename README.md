@@ -50,3 +50,20 @@
 
 * TODO: find bugs
 
+## 1004
+
+* simple DFS
+
+* using map to represent tree
+
+* Idea from https://blog.csdn.net/iaccepted/article/details/21289205
+
+* can be done by BFS
+
+  * need to record level info. when input
+
+    ```c++
+    level[sid] = level[id] + 1;
+    ```
+
+    

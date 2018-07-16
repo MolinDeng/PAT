@@ -15,7 +15,7 @@ priority_queue<int, vector<int>, greater<int> > q;//从小到大出队
 priority_queue<int, vector<int>, less<int> > q;//大到小
 //自定义cmp优先级
 struct cmp {
-	bool operator ()(int x, int y) {
+	bool operator () (int x, int y) {
 		return x > y;//最小值优先
 	}
 }
@@ -30,3 +30,16 @@ struct node {
 priority_queue<node> q;
 ```
 
+## Map
+
+* map中按照key升序排列，不可以使用sort
+
+```c++
+//插入
+M.insert(pair<int, string>(12,"asd"));
+M.insert(make_pair(12,"asd"));
+M.insert(map<int, string>::value_type(12,"asd"));
+M[12] = "asd";
+```
+
+* 查找find返回iterator,未找到返回.end()
