@@ -28,3 +28,25 @@
 
 * two-way merge
 
+## 1003
+
+* 22/25
+
+* using Dij Algorithm to find shortest path
+
+* using priority queue to find vertex to visit
+
+  * before push into queue, we need to find if the id in queue
+
+  * self-defined cmp function for determining priority
+
+    ```c++
+    struct mycmp {
+        bool operator()(int i, int j) {
+            return s_dist[i] > s_dist[j];
+        }
+    };
+    ```
+
+* TODO: find bugs
+
