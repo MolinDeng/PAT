@@ -66,4 +66,7 @@
     level[sid] = level[id] + 1;
     ```
 
-    
+
+## 1005
+
+* string operation
