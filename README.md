@@ -74,3 +74,22 @@
 ## 1006
 
 * using map&priority_queue
+
+## 1007
+
+* online algorithm O(N)
+
+```c++
+else if(curr_sum > max_sum || (curr_sum == 0 && end == N - 1)) {
+    ...
+}
+```
+
+* ==curr_sum == 0 && end == N - 1== is very important, for input as below:
+
+  ```shell
+  >6
+  >0 0 0 0 -1 0
+  ```
+
+  If this condition is omitted, the *end* is 5(that is N -1), which is incorrect.
