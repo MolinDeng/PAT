@@ -70,3 +70,7 @@
 ## 1005
 
 * string operation
+
+## 1006
+
+* using map&priority_queue
