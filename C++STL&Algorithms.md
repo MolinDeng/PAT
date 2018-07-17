@@ -10,7 +10,7 @@
 ```c++
 #include <queue>
 #include <functional>//for greater
-priority_queue<int> q;//从大到小出队
+priority_queue<int/string> q;//从大到小出队
 priority_queue<int, vector<int>, greater<int> > q;//从小到大出队
 priority_queue<int, vector<int>, less<int> > q;//大到小
 //自定义cmp优先级
