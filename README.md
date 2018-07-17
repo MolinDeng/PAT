@@ -85,7 +85,7 @@ else if(curr_sum > max_sum || (curr_sum == 0 && end == N - 1)) {
 }
 ```
 
-* ==curr_sum == 0 && end == N - 1== is very important, for input as below:
+* **curr_sum == 0 && end == N - 1** is very important, for input as below:
 
   ```shell
   >6
@@ -93,3 +93,4 @@ else if(curr_sum > max_sum || (curr_sum == 0 && end == N - 1)) {
   ```
 
   If this condition is omitted, the *end* is 5(that is N -1), which is incorrect.
+
