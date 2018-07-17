@@ -99,3 +99,25 @@ else if(curr_sum > max_sum || (curr_sum == 0 && end == N - 1)) {
 * simple
 
 ## 1009
+
+* using map
+
+## 1010
+
+* simple ***for*** iteration cannot pass test point 7(large sum and out of time)
+
+* binary search must consider N2_d < 0
+
+  This situation happens when N1_d is very large, when computing N2_d, N2_d may exceeding the upper bound and become negative.(e.g. ***right*** is super large , so ***mid*** is also super large, calculate ***pow()*** can be super super large)
+
+```c++
+if(N2_d > N1_d || N2_d < 0) break;
+...
+else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
+...
+```
+
+* idea from https://www.cnblogs.com/weedboy/p/7244819.html
+
+## 1011
+
