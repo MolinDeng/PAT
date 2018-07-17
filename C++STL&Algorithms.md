@@ -43,3 +43,22 @@ M[12] = "asd";
 ```
 
 * 查找find返回iterator,未找到返回.end()
+* 遍历操作
+
+```c++
+//正反迭代器+数组遍历
+for(int i = 1; i <= M.size(); i++)
+  cout << M[i] << endl;
+```
+
+* 利用数组下标形式新建修改item
+
+```c++
+map<int, float> res;
+res[1] += 10;// insert <1,10>
+res[1] += 10;// alter <1,20>
+res[3];// insert <3,0>
+cout << res[2] << endl;// res[2] = 0
+cout << res.size();// size is three
+```
+

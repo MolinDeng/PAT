@@ -94,3 +94,8 @@ else if(curr_sum > max_sum || (curr_sum == 0 && end == N - 1)) {
 
   If this condition is omitted, the *end* is 5(that is N -1), which is incorrect.
 
+## 1008
+
+* simple
+
+## 1009
