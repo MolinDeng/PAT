@@ -125,3 +125,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1012
 
+* sort grades rather than sort ID
+* 88 87 87 55，the rank is 1,2,2,4
+
+## 1013
