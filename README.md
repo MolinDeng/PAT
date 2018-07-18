@@ -129,3 +129,10 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * 88 87 87 55，the rank is 1,2,2,4
 
 ## 1013
+
+* Find the # of sub-connected component.
+* DFS or BFS
+
+## 1014
+
+* 
