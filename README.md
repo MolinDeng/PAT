@@ -135,4 +135,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1014
 
-* 
+* defining a good data structure is vital important.
+
+## 1015
+
