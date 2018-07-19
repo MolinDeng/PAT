@@ -30,7 +30,7 @@
 
 ## 1003
 
-* 22/25
+* my code using priority queue 22/25
 
 * using Dij Algorithm to find shortest path
 
@@ -48,7 +48,7 @@
     };
     ```
 
-* TODO: find bugs
+* code from https://www.liuchuo.net/archives/2359 AC
 
 ## 1004
 
