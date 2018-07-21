@@ -147,6 +147,18 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * a good data structure
 * understanding ***no two records for the same customer have the same time***, 所以按时间排序后，offline时间和它正前方的online时间一定是一对
 
+## 1017
+
+* the same as 1014
+
+## 1018
+
+
+
+## 1019
+
+* simple
+
 ## 1020
 
 * the relationship between three traversal order
