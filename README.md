@@ -50,6 +50,26 @@
 
 * code from https://www.liuchuo.net/archives/2359 AC
 
+* using vector<vector<int\>>  store path
+
+  ```c++
+  if(s_dist[curr] + dist[curr][i] < s_dist[i]) {
+      s_dist[i] = s_dist[curr] + dist[curr][i];
+      team_cnt[i] = team_cnt[curr] + teams[i];
+      path_cnt[i] = path_cnt[curr];
+      path[i].clear();
+      path[i].push_back(curr);
+  }
+  else if(s_dist[curr] + dist[curr][i] == s_dist[i]) {
+      if(team_cnt[i] < teams[i] + team_cnt[curr])
+        	team_cnt[i] = teams[i] + team_cnt[curr];
+      path_cnt[i] += path_cnt[curr];
+      path[i].push_back(curr);
+  }
+  ```
+
+  
+
 ## 1004
 
 * simple DFS
@@ -153,7 +173,10 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1018
 
-
+* test 7 not pass
+* 思路和1003类似，但是更正确的做法是储存路径，最后模拟找到最优路径，因为该问题不满足最优子结构
+* 但是我的方法只有test 7没过呀
+* AC codehttps://www.liuchuo.net/archives/2373
 
 ## 1019
 
