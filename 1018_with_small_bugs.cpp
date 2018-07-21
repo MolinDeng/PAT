@@ -3,7 +3,6 @@
 #include <vector>
 #include <algorithm>
 #include <climits>
-
 #define INF INT_MAX
 using namespace std;
 
