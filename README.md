@@ -150,7 +150,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1013
 
-* Find the # of sub-connected component.
+* Find the # of sub-connected component连通分量的个数
 * DFS or BFS
 
 ## 1014
@@ -186,3 +186,20 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * the relationship between three traversal order
 
+## 1021
+
+## 1022
+
+## 1023
+
+* 大整数运算，通过string以及字符操作来实现
+
+* 判断方法tricky
+
+  ```c++
+  sort(origin.begin(), origin.end());
+  sort(res_copy.begin(), res_copy.end());
+  if(res_copy == origin) //Yes
+  ```
+
+## 1024
