@@ -176,7 +176,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * test 7 not pass
 * 思路和1003类似，但是更正确的做法是储存路径，最后模拟找到最优路径，因为该问题不满足最优子结构
 * 但是我的方法只有test 7没过呀
-* AC codehttps://www.liuchuo.net/archives/2373
+* AC code https://www.liuchuo.net/archives/2373
 
 ## 1019
 
@@ -187,6 +187,14 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * the relationship between three traversal order
 
 ## 1021
+
+* 通过DFS和Disjoint set都可判断连通分量的个数
+
+* 而找到最深根有非常tricky的做法, 不用对每个节点DFS计算深度
+
+  > **先从一个结点dfs后保留最高高度拥有的结点们，然后从这些结点中的其中任意一个开始dfs得到最高高度的结点们，这两个结点集合的并集就是所求** 
+
+* Idea from https://www.liuchuo.net/archives/2348
 
 ## 1022
 
