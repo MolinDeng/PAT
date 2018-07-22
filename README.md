@@ -198,6 +198,12 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1022
 
+* map的简单应用
+* 对于连续getline()操作
+  * 连续getline()操作之前一定要getchar()吃掉回车
+  * 连续getline()操作之间没有其他输入输出则不用getchar()
+  * 连续getline()操作之间有cout/printf输出'\n'，则不用getchar()
+
 ## 1023
 
 * 大整数运算，通过string以及字符操作来实现
