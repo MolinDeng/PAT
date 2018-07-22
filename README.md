@@ -227,3 +227,9 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 ## 1027
 
 * easy
+
+## 1029
+
+* 第一个队列存好后，把第二个队列边读，边和第一个队列比较，选择出队。这样可以不用一次存完第二个队列，解决超内存的问题.
+* Idea from https://www.liuchuo.net/archives/2248
+
