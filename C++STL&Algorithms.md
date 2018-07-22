@@ -62,3 +62,58 @@ cout << res[2] << endl;// res[2] = 0
 cout << res.size();// size is three
 ```
 
+## Set
+
+* set中元素默认升序排列
+
+## Disjoint Set
+
+* 数组或者链表实现
+
+```c++
+vector<int> DS(N);// init DS(N, -1)
+int cnt;// # of disjoint set
+void init() {
+  cnt = N;
+  fiil(DS.begin(), DS.end(), -1);
+}
+// 路径压缩
+int find(int x) {
+  if(DS[x] < 0) return;
+  return DS[x] = find(DS[x]);
+}
+// Union by Height，也可以是其他标准，目的是减少高度，尽量平衡
+// 此处的高度为一个上界，是高度的负值再减1，储存在DS[root]中
+void union_by_H(int r1, int r2) {
+  if(find(r1) == find(r2)) return;
+  if(DS[r2] < DS[r1]) //r2 is deeper
+    s[r1] = r2;
+  else {
+    if(DS[r1] == DS[r2]) 
+      s[r1]--;
+   	s[r2] = r1;
+  }
+  cnt--;
+}
+```
+
+
+
+## 字符串分词
+
+```c++
+#include <iostream>
+#include <string>
+#include <sstream>
+using namespace std;
+int main() {
+  	stringstream str("abcd efg kk dd ");
+  	string tok;
+  	while(getline(str, tok, ' ')) {
+    		cout << tok << endl;
+  	}
+  	return 0;
+}
+```
+
+* stringstream的拷贝构造可以是string、char*
