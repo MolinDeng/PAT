@@ -223,3 +223,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 ## 1025
 
 * Test 3 timeout可能原因是使用map映射id和各种信息，红黑树查找需要时间，不如vector直接快
+
+## 1027
+
+* easy
