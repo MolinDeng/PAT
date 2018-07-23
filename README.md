@@ -2,7 +2,7 @@
 
 * Goal: ALL AC
 
-## 1001
+## 1001(字符串处理)
 
 * string operation using insert
 
@@ -24,11 +24,11 @@
 
 * http://www.cplusplus.com/reference/string/string/insert/
 
-## 1002
+## 1002(两路merge)
 
 * two-way merge
 
-## 1003
+## 1003(Dijkstra算法 点带权)
 
 * my code using priority queue 22/25
 
@@ -70,7 +70,7 @@
 
   
 
-## 1004
+## 1004(DFS, BFS, 层序遍历)
 
 * simple DFS
 
@@ -87,15 +87,15 @@
     ```
 
 
-## 1005
+## 1005(字符串处理)
 
 * string operation
 
-## 1006
+## 1006(模拟，优先队列应用)
 
 * using map&priority_queue
 
-## 1007
+## 1007(DP，最大连续子序列之和)
 
 * online algorithm O(N)
 
@@ -114,15 +114,15 @@ else if(curr_sum > max_sum || (curr_sum == 0 && end == N - 1)) {
 
   If this condition is omitted, the *end* is 5(that is N -1), which is incorrect.
 
-## 1008
+## 1008(数学问题)
 
 * simple
 
-## 1009
+## 1009(模拟，map应用)
 
 * using map
 
-## 1010
+## 1010(二分法)
 
 * simple ***for*** iteration cannot pass test point 7(large sum and out of time)
 
@@ -139,54 +139,54 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * idea from https://www.cnblogs.com/weedboy/p/7244819.html
 
-## 1011
+## 1011(查找元素，优先队列应用)
 
 * priority queue
 
-## 1012
+## 1012(排序)
 
 * sort grades rather than sort ID
 * 88 87 87 55，the rank is 1,2,2,4
 
-## 1013
+## 1013(图的遍历，统计连通分量的个数，DFS，Disjoint Set)
 
 * Find the # of sub-connected component连通分量的个数
 * DFS or BFS
 
-## 1014
+## 1014(queue应用，模拟)
 
 * defining a good data structure is vital important.
 
-## 1015
+## 1015(素数，计算reverse number)
 
 * is_prime
 * calculate reverse number
 
-## 1016
+## 1016(排序)
 
 * a good data structure
 * understanding ***no two records for the same customer have the same time***, 所以按时间排序后，offline时间和它正前方的online时间一定是一对
 
-## 1017
+## 1017(queue的应用，模拟)
 
 * the same as 1014
 
-## 1018
+## 1018(Dijstra 算法，DFS，点带权，判定方法不同，多路径储存)
 
 * test 7 not pass
 * 思路和1003类似，但是更正确的做法是储存路径，最后模拟找到最优路径，因为该问题不满足最优子结构
 * 但是我的方法只有test 7没过呀
 * AC code https://www.liuchuo.net/archives/2373
 
-## 1019
+## 1019(回文数，字符串处理)
 
 * simple
 
-## 1020
+## 1020(树的遍历，之间的转换)
 
 * the relationship between three traversal order
 
-## 1021
+## 1021(图的遍历，DFS，计算连通分量的个数，Disjoint set)
 
 * 通过DFS和Disjoint set都可判断连通分量的个数
 
@@ -196,7 +196,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * Idea from https://www.liuchuo.net/archives/2348
 
-## 1022
+## 1022(map应用)
 
 * map的简单应用
 * 对于连续getline()操作
@@ -204,7 +204,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
   * 连续getline()操作之间没有其他输入输出则不用getchar()
   * 连续getline()操作之间有cout/printf输出'\n'，则不用getchar()
 
-## 1023
+## 1023(大整数运算，字符串操作)
 
 * 大整数运算，通过string以及字符操作来实现
 
@@ -216,28 +216,34 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
   if(res_copy == origin) //Yes
   ```
 
-## 1024
+## 1024(大整数运算，字符串实现)
 
 * 大整数运算，通过string以及字符操作来实现
 
-## 1025
+## 1025(排序)
 
 * Test 3 timeout可能原因是使用map映射id和各种信息，红黑树查找需要时间，不如vector直接快
 
-## 1026
+## 1026(模拟，queue应用，数据结构设计)
 
 * TODO: re-define data structure, and simulate the queueing
 
-## 1027
+## 1027(进制转换)
 
 * easy
 
-## 1028
+## 1028(排序)
 
 * scanf&printf is faster
 
-## 1029
+## 1029(排序，边读边排)
 
 * 第一个队列存好后，把第二个队列边读，边和第一个队列比较，选择出队。这样可以不用一次存完第二个队列，解决超内存的问题.
 * Idea from https://www.liuchuo.net/archives/2248
+
+## 1030(Dijkstra算法 + DFS，最短路径，边带权)
+
+* vector\<int> path储存前驱
+
+## 1031
 
