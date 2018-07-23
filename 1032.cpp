@@ -1,27 +1,29 @@
 #include <cstdio>
 #include <iostream>
-#include <string>
-#include <algorithm>
-#include <cmath>
-#include <map>
 #include <set>
 
 using namespace std;
 
-map<string, string> pre;
-set<string> S;
+typedef pair<int, bool> Node;
+Node node[100000];
+
 int main() {
-    string head1, head2;
-    int N;
-    cin >> head1 >> head2 >> N;
+    int head1, head2, N;
+    scanf("%d %d %d", &head1, &head2, &N);
     while(N--) {
-        char s1[5], s2[5], c;
-        scanf("%s %c %s", s1, &c, s2);
-        if(S.find(s2) != S.end()) {
-            printf("%s", s2);
-            break;
-        }
-        S.insert(s2);
+        int a, b; 
+        char c;
+        scanf("%d %c %d", &a, &c, &b);
+        node[a].first = b;
     }
+    for(int i = head1; i != -1; i = node[i].first) 
+        node[i].second = true;
+    for(int i = head2; i != -1; i = node[i].first) {
+        if(node[i].second) {
+            printf("%05d", i);
+            return 0;
+        }
+    }
+    printf("-1");
     return 0;
 }
