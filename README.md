@@ -267,3 +267,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * 忽略0
 
+## 1038(贪心？字符串比较)
+
+* cmp: return a + b < b + a
+* 满足最优子结构
