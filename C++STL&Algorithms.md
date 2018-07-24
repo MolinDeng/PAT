@@ -79,7 +79,7 @@ void init() {
 }
 // 路径压缩
 int find(int x) {
-  if(DS[x] < 0) return;
+  if(DS[x] < 0) return x;
   return DS[x] = find(DS[x]);
 }
 // Union by Height，也可以是其他标准，目的是减少高度，尽量平衡
@@ -87,11 +87,11 @@ int find(int x) {
 void union_by_H(int r1, int r2) {
   if(find(r1) == find(r2)) return;
   if(DS[r2] < DS[r1]) //r2 is deeper
-    s[r1] = r2;
+    DS[r1] = r2;
   else {
     if(DS[r1] == DS[r2]) 
-      s[r1]--;
-   	s[r2] = r1;
+      DS[r1]--;
+   	DS[r2] = r1;
   }
   cnt--;
 }
