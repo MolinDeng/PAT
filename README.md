@@ -1,5 +1,9 @@
 # PAT Advanced Level
 
+* TODO:
+  * 1026 re-define data structure
+  * 1034 ...
+  * LC subString & LC subSequence 总结
 * Goal: ALL AC
 
 ## 1001(字符串处理)
