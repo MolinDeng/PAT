@@ -271,3 +271,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * cmp: return a + b < b + a
 * 满足最优子结构
+
+## 1040(DP最长公共子串LCSubstring)
+
+* TODO：LC substring & LC subsequence
