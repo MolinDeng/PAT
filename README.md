@@ -259,3 +259,6 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * while((c = getchar()) != '\n')
 
+## 1036(排序、查找)
+
+* online 边读边比较
