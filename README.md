@@ -279,3 +279,8 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 ## 1040(DP最长公共子串LCSubstring)
 
 * TODO：LC substring & LC subsequence
+
+## 1041(queue应用，Hash散列)
+
+* 第一次见到的入队，出现过两次以上的标记为seen，再从队列顶部查看，如果seen，则出队，找到第一个非seen标记即为所求
+* TODO：理解此方法https://www.liuchuo.net/archives/2139
