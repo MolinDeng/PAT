@@ -304,3 +304,8 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * long long
 * Galleon的base取LLONG_MAX
+
+## 1065(大数相加，判断越界)
+
+* MAX + MAX = -2
+* MIN + MIN= 0
