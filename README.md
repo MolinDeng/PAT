@@ -281,9 +281,15 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * 简单map会超时，改用vector执行映射，首先要建立ID与下标的关系——getid()
 * getid()中pow函数会降低效率...
 
-## 1040(DP最长公共子串LCSubstring)
+## 1040(DP最长公共子串LC-Substring)
 
 * TODO：LC substring & LC subsequence
+
+* 转移方程
+
+  $C[i][j] = C[i == 0?0:i-1][j ==0?0:j-1] + 1\quad when\quad s1[i]==ss2[j]$
+
+  $C[i][j] = 0\quad when \quad s1[i]\neq s2[j]$
 
 ## 1041(queue应用，Hash散列)
 
@@ -303,6 +309,16 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * 遍历起始下标i，找到最小的j，使得i-j的总价钱是正好>=M
 * 通过二分加速
 * 储存diamond方式与1046类似，降低空间复杂度
+
+## 1045(LC-Subsequence)
+
+![1532590220540](assets/1532590220540.png)
+
+* 此题是LCS的变体，在保持顺序的前提下，允许重复
+
+  $C[i][j] = max(C[i][j-1], C[i-1][j])\quad when\quad s1[i] \neq s2[j]$
+
+  $C[i][j] = max(C[i][j-1], C[i-1][j])+1\quad when\quad s1[i] = s2[j]$
 
 ## 1046(模拟，online边读入边计算)
 
