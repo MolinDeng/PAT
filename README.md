@@ -332,6 +332,10 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * TODO：test3 not AC
 
+## 1048(查找，二分查找)
+
+* 调用binary_search
+
 ## 1058(进制转换)
 
 * long long
