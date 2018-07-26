@@ -4,6 +4,8 @@
   * 1026 re-define data structure
   * 1034 ...
   * LC subString & LC subSequence 总结
+  * 1039 学姐的做法
+  * 1047 problem???
 * Goal: ALL AC
 
 ## 1001(字符串处理)
@@ -325,6 +327,10 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * 只需要储存某一个定点到其他所有点的距离，任意两点的距离都是abs(定点到这两点的距离之差)
   * 注意顺序储存
 * 最后比较这个距离和另一条路的距离(环路总距离 - 一条路的距离)
+
+## 1047(1039的逆过程，大数据查找)
+
+* TODO：test3 not AC
 
 ## 1058(进制转换)
 
