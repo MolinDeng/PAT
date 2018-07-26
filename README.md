@@ -336,6 +336,14 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * 调用binary_search
 
+## 1049(数学问题)
+
+* now表示当前位，left表示当前位左边所有数字构成的数字，right表示当前位右边所有数字构成的数字，用a表示now对应的位制，a=1说明now在个位，a=10说明now在十位
+  * 如果now是0：会产生left*a个1，因为只有在left从0\~left-1的时候产生1，所以产生了left个，又因为右边会重复a次（0\~a-1）
+  * 如果now是1：要比上一种情况多产生 当now为1时，right从0\~right所增加的right+1个1
+  * 如果now大于1：会产生(left+1)*a个1，因为只有在left从0\~left的时候产生1，所以产生了left个，又因为右边会重复a次（0\~a-1）
+* now从最低位到最高位依次迭代
+
 ## 1058(进制转换)
 
 * long long
