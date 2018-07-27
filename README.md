@@ -370,6 +370,10 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * 先对儿子节点按照权排序，之后顺序遍历即可
 
+## 1054(map的应用)
+
+* map：$color\mapsto 出现的次数$
+
 ## 1058(进制转换)
 
 * long long
