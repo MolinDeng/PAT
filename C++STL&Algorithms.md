@@ -71,7 +71,7 @@ cout << res.size();// size is three
 * 数组或者链表实现
 
 ```c++
-vector<int> DS(N);// init DS(N, -1)
+vector<int> DS(N);// init DS(N, -1)；初始化中也可以让根部指向自己
 int cnt;// # of disjoint set
 void init() {
   cnt = N;
@@ -84,8 +84,10 @@ int find(int x) {
 }
 // Union by Height，也可以是其他标准，目的是减少高度，尽量平衡
 // 此处的高度为一个上界，是高度的负值再减1，储存在DS[root]中
-void union_by_H(int r1, int r2) {
-  if(find(r1) == find(r2)) return;
+void union_by_H(int a, int b) {
+  int r1 = find(a);
+  int r2 = find(b);
+  if(r1==r2) return;
   if(DS[r2] < DS[r1]) //r2 is deeper
     DS[r1] = r2;
   else {
@@ -93,7 +95,7 @@ void union_by_H(int r1, int r2) {
       DS[r1]--;
    	DS[r2] = r1;
   }
-  cnt--;
+  cnt--;//集合个数减一
 }
 ```
 
@@ -117,3 +119,90 @@ int main() {
 ```
 
 * stringstream的拷贝构造可以是string、char*
+
+## [BIT树状数组](https://blog.csdn.net/flushhip/article/details/79165701)
+
+* https://www.liuchuo.net/archives/2268 区间更新，单点查询，**未理解**
+* 查询和更新的复杂度都是$O(logn)$
+* 以二进制的规律分组储存数组的和，从而保存数组，并维持一个较高的操作效率
+* c[i]储存从第i个元素向前lowbit(i)个数的和，包括array[i]，c[i]覆盖的长度是lowbit(i)
+* BIT数组的下标必须从1开始
+
+![1532759531469](assets/1532759531469.png)
+
+* lowbit函数
+
+  * 求某一个数的二进制表示中最低的一位1
+
+  * 也可以理解为：能整除x的最大的2的幂次
+
+    ```c++
+    #define lowbit(i) ((i) & (-i))
+    ```
+
+#### 单点更新，区间查询
+
+* 查询前缀和
+
+  ```c++	
+  int getsum(int pos) {
+    int sum = 0;
+    for( ; x >= 1; sum += c[pos], pos -= lowbit(pos));//判断写成x > 0也是一样的
+    return sum;
+  }
+  ```
+
+* 更新后缀和c[i]
+
+  ```c++
+  void update(int pos, int deta) {
+    for( ; pos <= n; c[pos] += deta, pos += lowbit(pos));
+  }
+  ```
+
+* 如果要求[x, y]之内的数的和，可以转换成```getsum(y) – getsum(x – 1)```来解决
+
+#### 统计序列中在元素左边比该元素小的元素的个数
+
+```c++
+#define lowbit(i) ((i) & (-i))
+const int maxn = 10000;
+int c[maxn], n;
+int getsum(int pos) {
+    int sum = 0;
+    for( ; pos > 0; sum += c[pos], pos -= lowbit(pos));
+    return sum;
+}
+void update(int pos, int val) {
+    for( ; pos <= maxn; c[pos] += val, pos += lowbit(pos));
+}
+int main() {
+    int x;
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &x);
+        update(x, 1);
+        printf("%d\n", getsum(x - 1));
+    }
+    return 0;
+}
+```
+
+#### 如果给定一个二维数组矩阵A，将循环改成两重
+
+```c++
+int c[maxn][maxn]
+int getsum(int x, int y) {
+		int sum = 0;
+		for(int i = x; i >= 1; i -= lowbit(i))
+				for(int j = y; j >= 1; j -= lowbit(j))
+						sum += c[i][j];
+		return sum;
+}
+void update(int x, int y, int val) {
+		for(; x <= n; x += lowbit(x))
+			for(; y <= n; y += lowbit(y))
+				c[i][j] += val;
+}
+```
+

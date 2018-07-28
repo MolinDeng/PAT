@@ -6,6 +6,7 @@
   * LC subString & LC subSequence 总结
   * 1039 学姐的做法
   * 1047 problem???
+  * 树的遍历顺序之间的关系总结
 * Goal: ALL AC
 
 ## 1001(字符串处理)
