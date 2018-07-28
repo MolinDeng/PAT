@@ -154,6 +154,8 @@ int main() {
 
 * 更新后缀和c[i]
 
+  更新相当于在原数组上pos位置增加了val，进而数组C中包含了pos位置的值都要更新
+
   ```c++
   void update(int pos, int deta) {
     for( ; pos <= n; c[pos] += deta, pos += lowbit(pos));

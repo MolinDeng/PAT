@@ -375,6 +375,27 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * map：$color\mapsto 出现的次数$
 
+## 1057(BIT树状数组)
+
+* c[x]表示$\le x $的数出现的个数
+
+* 求第k = (S.size() + 1)/2大的数，就是求从小到大的第K个数，即查找第一个x，使得小于等于x的数的个数等于K
+
+  * 二分法加速
+
+    ```c++
+    int PeekMedian() {
+        int left = 1, right = maxn, mid, k = (s.size() + 1) / 2;
+        while(left < right) {
+            mid = (left + right) / 2;
+            if(getsum(mid) >= k)
+                right = mid;
+            else left = mid + 1;
+        }
+        return left;
+    }
+    ```
+
 ## 1058(进制转换)
 
 * long long
