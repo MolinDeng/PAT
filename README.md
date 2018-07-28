@@ -375,6 +375,11 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * map：$color\mapsto 出现的次数$
 
+## 1056(模拟，排序，priority_queue)
+
+* seq数组储存每一轮的出场顺序，符合下一轮条件的push_back到末尾，最后删出原来所有的元素，进入下一轮
+* 通过priority_queue选出小组中最大的下标
+
 ## 1057(BIT树状数组)
 
 * c[x]表示$\le x $的数出现的个数
