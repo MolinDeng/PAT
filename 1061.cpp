@@ -36,6 +36,6 @@ int main() {
             break;
         }
     }
-    printf("%s %02d:%02d", DAY.c_str(), HH, MM);
+    printf("%s %02d:%02d", DAY.c_str(), HH,  MM);
     return 0;
 }
