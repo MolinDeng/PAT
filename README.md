@@ -167,6 +167,18 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 ## 1015(素数，计算reverse number)
 
 * is_prime
+
+  ```c++
+  bool is_prime(long x) {
+      if(x < 2) return false;
+      if(x == 2 || x == 3) return true;
+      for(long i = 2; i*i <= x; i++) {
+          if(x % i == 0) return false;
+      }
+      return true;
+  }
+  ```
+
 * calculate reverse number
 
 ## 1016(排序)
@@ -405,6 +417,18 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * long long
 * Galleon的base取LLONG_MAX
+
+## 1059(生成素数表)
+
+* prime_tab
+
+  ```C++	
+  #define RANGE 500000
+  for(long i = 2; i*i < RANGE; i++) 
+          for(long j = 2; j*i <= RANGE; j++) 
+                  prime_tab[j*i] = false;
+  fill(prime_tab.begin(), prime_tab.begin() + 2, false);
+  ```
 
 ## 1065(大数相加，判断越界)
 
