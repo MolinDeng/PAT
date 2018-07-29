@@ -444,6 +444,10 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * priority_queue重载<号
 * 或者vector排序，自定cmp函数
 
+## 1063(Set应用)
+
+* 简单查找
+
 ## 1065(大数相加，判断越界)
 
 * MAX + MAX = -2
