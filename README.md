@@ -471,3 +471,11 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
   * get_height(Node* root)
   * Insert(Node *root, int key)
   * RR(Node *root)、LL(Node *root)、LR(Node *root)、RL(Node *root)
+
+## 1067(模拟，贪心)
+
+* 记录数字i在输入中的下标pos[i]，即i保存在pos[i]的位置
+* 输入时，用cnt记录没有在对应位置的数的个数，cnt就为**迭代次数**
+* 0不在0位，如果在pos[0]位，该位置本应该是数pos[0]，而数pos[0]的位置在pos[pos[0]]，将这两个位置交换
+* 0在0位，当前序列不是有序的，就把0和第一个没有在对应位置的数进行交换
+  * 如果每次从头开始找很浪费时间。对于上一次查找，我们记录下标pre_k，说明pre_k以前的一定是排序好的，下一次就从pre_k开始就好了
