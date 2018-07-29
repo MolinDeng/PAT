@@ -464,3 +464,10 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * MAX + MAX = -2
 * MIN + MIN= 0
+
+## 1066(AVL tree)
+
+* 核心函数
+  * get_height(Node* root)
+  * Insert(Node *root, int key)
+  * RR(Node *root)、LL(Node *root)、LR(Node *root)、RL(Node *root)
