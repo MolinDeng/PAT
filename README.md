@@ -555,3 +555,29 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * 如果已经读到换行符，若token不为空，跳出while之后还要将这个token加上
 
+## 1072(Dijstra算法)
+
+* 熟悉Dij的代码块
+
+  ```c++
+  fill(d.begin(), d.end(), INF);
+  fill(visited.begin(), visited.end(), false);
+  d[src] = 0;
+  for(int i = 1; i <= N; i++) {
+    int u = -1, min = INF;
+    for(int j = 1; j <= N; j++) {
+      if(!visited[j] && d[j] < min) {
+        u = j;
+        min = d[j];
+      }
+    }
+    if(u == -1) break;
+    visited[u] = true;
+    for(int v = 1; v <= N; v++) {
+      if(!visited[v] && e[u][v] != INF && d[u] + e[u][v] < d[v]) 
+        d[v] = d[u] + e[u][v];
+    }
+  }
+  ```
+
+  
