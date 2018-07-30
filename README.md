@@ -485,7 +485,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * v1空间压缩，v2没有空间压缩，19/30错误的回溯方法
 
-  * 回溯关键，物品size降序排列
+  * 回溯关键，**<u>物品size降序排列</u>**
 
   ![1532923184005](assets/1532923184005.png)
 
@@ -518,12 +518,29 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
       }
     }
   }
+  //while的写法
+  while(C > 0) {
+    if(DP[i][C] == DP[i-1][C-w[i]]+w[i]) {
+      res.push_back(w[i]);
+      C -= w[i];
+    }
+    i--;
+  }
   ```
 
 * 空间优化
 
   ```C++
-  
+  vector<int> DP(M + 1, 0);
+  vector<vector<bool> > choice(N + 1, vector<bool>(M + 1, false));//用choice回溯
+  for(int i = 1; i <= N; i++) {
+    for(int j = M; j >= weight[i]; j--) {
+      if(DP[j] <= DP[j - weight[i]] + weight[i]) {
+        DP[j] = DP[j - weight[i]] + weight[i];
+        choice[i][j] = true;
+      }
+    }
+  }
   ```
 
   
