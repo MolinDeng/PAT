@@ -99,8 +99,6 @@ void union_by_H(int a, int b) {
 }
 ```
 
-
-
 ## 字符串分词
 
 ```c++
@@ -207,4 +205,59 @@ void update(int x, int y, int val) {
 				c[i][j] += val;
 }
 ```
+
+## [stoi函数](http://www.cplusplus.com/reference/string/stoi/)
+
+```c++
+int stoi (const string&  str, size_t* idx = 0, int base = 10);
+```
+
+### Parameters
+
+- str
+
+  String object with the representation of an integral number.
+
+- idx
+
+  Pointer to an object of type [size_t](http://www.cplusplus.com/size_t), whose value is set by the function to position of the next character in *str* after the numerical value. This parameter can also be a null pointer, in which case it is not used.
+
+- base
+
+  Numerical base (radix) that determines the valid characters and their interpretation. If this is `0`, the base used is determined by the format in the sequence (see [strtol](http://www.cplusplus.com/strtol) for details). Notice that by default this argument is `10`, not `0`.
+```C++
+// stoi example
+#include <iostream>   // std::cout
+#include <string>     // std::string, std::stoi
+
+int main ()
+{
+  std::string str_dec = "2001, A Space Odyssey";
+  std::string str_hex = "40c3";
+  std::string str_bin = "-10010110001";
+  std::string str_auto = "0x7f";
+
+  std::string::size_type sz;   // alias of size_t
+
+  int i_dec = std::stoi (str_dec,&sz);
+  int i_hex = std::stoi (str_hex,nullptr,16);
+  int i_bin = std::stoi (str_bin,nullptr,2);
+  int i_auto = std::stoi (str_auto,nullptr,0);
+
+  std::cout << str_dec << ": " << i_dec << " and [" << str_dec.substr(sz) << "]\n";
+  std::cout << str_hex << ": " << i_hex << '\n';
+  std::cout << str_bin << ": " << i_bin << '\n';
+  std::cout << str_auto << ": " << i_auto << '\n';
+
+  return 0;
+}
+```
+
+`2001, A Space Odyssey: 2001 and [, A Space Odyssey]`
+
+`40c3:  16579`
+
+`-10010110001: -12010`
+
+`x7f: 127`
 

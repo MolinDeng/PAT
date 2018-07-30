@@ -303,7 +303,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * 转移方程
 
-  $C[i][j] = C[i == 0?0:i-1][j ==0?0:j-1] + 1\quad when\quad s1[i]==ss2[j]$
+  $C[i][j] = C[i == 0?0:i-1][j ==0?0:j-1] + 1\quad when\quad s1[i]==s2[j]$
 
   $C[i][j] = 0\quad when \quad s1[i]\neq s2[j]$
 
@@ -543,4 +543,8 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
   }
   ```
 
-  
+
+## 1069(数学问题)
+
+* 注意输入和计算过程补0
+* stoi真好用
