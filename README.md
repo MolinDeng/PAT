@@ -551,3 +551,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1070(简单贪心)
 
+## 1071(map的应用)
+
+* 如果已经读到换行符，若token不为空，跳出while之后还要将这个token加上
+
