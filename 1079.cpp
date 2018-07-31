@@ -39,6 +39,6 @@ int main() {
             }
     }
     DFS(0, 0);
-    printf("%.1lf", res);
+    printf("%.1f", res);
     return 0;
 }
