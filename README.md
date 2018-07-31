@@ -597,3 +597,10 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * getline(cin, string)
 * 判断是否已经为空串
+
+## 1078(hash二次探测法)
+
+* 函数函数一般为h(key) = key % size;
+
+* if idx = H(key) 可以插入，则插入
+* else idx = H(key + i*i) for i = 0,1,...,size-1 
