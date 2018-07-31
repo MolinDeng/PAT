@@ -219,7 +219,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 ## 1022(map应用)
 
 * map的简单应用
-* 对于连续getline()操作
+* 对于连续getline(cin, s)操作,s是string
   * 连续getline()操作之前一定要getchar()吃掉回车
   * 连续getline()操作之间没有其他输入输出则不用getchar()
   * 连续getline()操作之间有cout/printf输出'\n'，则不用getchar()
@@ -593,3 +593,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * 用队列实现，某一层在队列中，依次出列，出列元素对应的下一层入列，通过记录操作前队列的大小（即pop的次数），可以使得下一层入列之后，之前层都出列了
 
+## 1077(字符串操作)
+
+* getline(cin, string)
+* 判断是否已经为空串
