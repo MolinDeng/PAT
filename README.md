@@ -7,6 +7,9 @@
   * 1039 学姐的做法
   * 1047 problem???
   * 树的遍历顺序之间的关系总结
+    * 有两种写法
+      * 计算根下标：1020、1086学姐的做法
+      * 交换元素，1086我的做法
   * 01背包问题总结
 * Goal: ALL AC
 
@@ -191,7 +194,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * the same as 1014
 
-## 1018(Dijstra 算法，DFS，点带权，判定方法不同，多路径储存)
+## 1018(Dijstra 算法，DFS搜索最优路径，点带权，判定方法不同，多路径储存)
 
 * test 7 not pass
 * 思路和1003类似，但是更正确的做法是储存路径，最后模拟找到最优路径，因为该问题不满足最优子结构
@@ -205,6 +208,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 ## 1020(树的遍历，之间的转换)
 
 * the relationship between three traversal order
+* 后续和中序构建层序
 
 ## 1021(图的遍历，DFS，计算连通分量的个数，Disjoint set)
 
@@ -635,4 +639,12 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
   for(int i = 0; i < N; i++)
     	res = max(res, upper_bound(arr.begin(), arr.end(), arr[i]*p) - (arr.begin()+i));
   ```
+
+## 1086(树的遍历之间的关系)
+
+* 前、中 推出 后
+
+## 1087(Dijkstra+路径保存+DFS搜索最优路径)
+
+* 与1018类似
 
