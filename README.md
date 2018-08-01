@@ -625,3 +625,14 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1084(简单字符串操作)
 
+## 1085(二分法，查找)
+
+* 复杂度O(nlogn)
+
+* 熟练使用**upper_bound()** 也可解决问题，复杂度为O(N)
+
+  ```c++
+  for(int i = 0; i < N; i++)
+    	res = max(res, upper_bound(arr.begin(), arr.end(), arr[i]*p) - (arr.begin()+i));
+  ```
+
