@@ -671,3 +671,8 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 ## 1093(字符串处理)
 
 * Pcnt、PAcnt、PATcnt，online可以解决
+
+## 1094(DFS, BFS，树遍历)
+
+* BFS用queue实现
+
