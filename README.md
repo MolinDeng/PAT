@@ -668,3 +668,6 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1092(字符串处理)
 
+## 1093(字符串处理)
+
+* Pcnt、PAcnt、PATcnt，online可以解决
