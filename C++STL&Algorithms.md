@@ -270,5 +270,8 @@ make_heap(v.begin(), v.begin() + 4);// [0,4)的数据构成heap，其余数据�
 push_heap(v.begin(), v.begin() + 6);// [0,6)的将位于5、6的数据加入，构成heap
 pop_heap(v.begin(), v.begin() + 6);// 将根元素放置heap范围的末尾，构成堆的范围-1，变成了[0,5)
 //这三个函数都能自定义比较函数，来自定义顺序
+// define cmp function
+auto cmp = [](const int x, const int y) { return x > y;};
+make_heap(v.begin(), v.end(), greater<int>());//最小堆
 ```
 
