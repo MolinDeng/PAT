@@ -712,3 +712,24 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1102(层序遍历，中序遍历)
 
+## 1103(DFS+剪枝，用数组储存幂值加速)
+
+* 由于结果要求序列最大同时和最大，因此从大到小枚举，下一层枚举值不能超过上一层枚举值，保证了序列和最大的同时，序列最大
+
+* 将当前和作为参数传入下一层，而不是在最后一层遍历相加，依次加速
+
+  ```c++
+  for(int i = tmp.empty() ? floor(pow(num, 1.0/P)) : tmp.back(); vfactor[i] >= 1; i--) {
+    tmp.push_back(i);
+    if(num >= vfactor[i]) KP(num - vfactor[i], depth + 1, sum+i);
+    tmp.pop_back();
+  }
+  ```
+
+* pow(i, P)提前计算，存在vfactor[i]，减少搜索中不必要的计算
+
+   ```c++
+  for(int i = 1, tmp = 0; tmp <= N; tmp = pow(i, P), i++) 
+    vfactor.push_back(tmp);
+   ```
+
