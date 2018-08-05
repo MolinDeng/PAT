@@ -729,7 +729,13 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * pow(i, P)提前计算，存在vfactor[i]，减少搜索中不必要的计算
 
    ```c++
-  for(int i = 1, tmp = 0; tmp <= N; tmp = pow(i, P), i++) 
+    for(int i = 1, tmp = 0; tmp <= N; tmp = pow(i, P), i++) 
     vfactor.push_back(tmp);
    ```
+
+## 1104(数学问题)
+
+## 1105(数学问题)
+
+* 顺时针螺旋填入矩阵
 
