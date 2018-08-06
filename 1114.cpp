@@ -83,4 +83,4 @@ int main() {
     for(auto p : res) 
         printf("%04d %d %.3f %.3f\n", people[p].minID, people[p].pre*(-1), people[p].totM / (double)(people[p].pre*(-1)), people[p].totArea / (double)(people[p].pre*(-1)));
     return 0;
-}
+}   
