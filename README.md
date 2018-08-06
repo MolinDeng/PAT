@@ -791,5 +791,35 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1121(数组map，简单题)
 
+## 1122(哈密尔顿回路判定)
+
+* 连通性判断
+
+  ```c++
+  int isConnected() {
+      int pre = v[0];
+      for (int i = 1; i < kn; i++) {
+          if (graph[pre][v[i]] != 1) return 0;
+          pre = v[i];
+      }
+      return 1;
+  }
+  ```
+
+* 连通之后只需判断访问次数即可
+
+  ```c++
+  int isHamilt() {
+      if (v[0] != v[kn-1]) return 0;
+      vector<int> times(kn, 0);
+      for (int i = 0; i < kn; i++)
+          times[v[i]]++;
+      for (int i = 1; i < kn; i++)
+          if ((i == v[0] && times[i] != 2) || (i != v[0] && times[i] != 1)) return 0;
+      return 1;
+  }
+  ```
+
 ## 1125(简单逻辑题)
 
+## 
