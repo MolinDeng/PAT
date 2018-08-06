@@ -754,3 +754,15 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * 路径选择可以保存二维数组，DFS选择路径
 * 也可以记录到达每个节点时的判定值，直接选择
 
+## 1112(字符串操作)
+
+* 注意细节呀细节：当输入的长度小于k的情况；当剩余未遍历字符数少于k的情况
+
+  ```c++
+  if(line.length() - i < k) {
+    isbroken[toascii(line[i])] = false;
+    i++;
+    continue;
+  }
+  ```
+
