@@ -779,3 +779,5 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 * easy
 
+## 1116(简单逻辑题)
+
