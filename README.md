@@ -849,4 +849,27 @@ Node *Inster(Node *root, int key) {
 
 ## 1125(简单逻辑题)
 
-##1126
+##1126(欧拉回路，半欧拉路径判定)
+
+* DFS判定连通性
+
+  ```c++
+  void dfs(int index) {
+    visit[index] = true;
+    cnt++;
+    for (int i = 0; i < v[index].size(); i++)//邻接表
+      if (visit[v[index][i]] == false)
+        dfs(v[index][i]);
+    /*
+    for(int i = 1; i <= N; i++) {//邻接矩阵
+      if(!visited[i] && e[u][i] == 1) 
+        DFS(i);
+    }
+    */
+  }
+  dfs(1);
+  cnt为n是连通的
+  ```
+
+* 连通无向图：|E|>=|V|-1
+
