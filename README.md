@@ -877,3 +877,7 @@ Node *Inster(Node *root, int key) {
 
 * 其实只是在输出时增加判断改变顺序即可，每一层记录一个low index和high index，交替从low到high和从high到low
 
+## 1028(逻辑题，判断 N Queens Puzzle)
+
+* 对角线判断只需要判断横坐标和纵坐标的差是否出现过
+
