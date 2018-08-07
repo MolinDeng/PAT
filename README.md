@@ -820,6 +820,33 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
   }
   ```
 
+## 1123(AVL tree，层序遍历)
+
+```c++
+Node *Inster(Node *root, int key) {
+  if(root == NULL) {
+    root = new Node();
+    Node->key = key;
+    Node->left = Node->right = NULL;
+  }
+  else if(key < root->key) {
+    root->left = Insert(root->left, key);
+    if(get_height(root->left) - get_height(root->right) == 2) 
+      root = key < root->left->key ? LL(root->left) : LR(root->right);
+  }
+  else {
+    root->right = Insert(root->right, key);
+    if(get_height(root->right) - get_height(root->left) == 2) 
+      root = key < root->left->key ? RL(root->left) : RR(root->right);
+  }
+  return root;
+}
+```
+
+## 1124(map，简单逻辑题)
+
+* pending
+
 ## 1125(简单逻辑题)
 
 ## 
