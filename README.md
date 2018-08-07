@@ -845,8 +845,8 @@ Node *Inster(Node *root, int key) {
 
 ## 1124(map，简单逻辑题)
 
-* pending
+* 遍历一遍即可
 
 ## 1125(简单逻辑题)
 
-## 
+##1126
