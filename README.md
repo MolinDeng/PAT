@@ -881,3 +881,25 @@ Node *Inster(Node *root, int key) {
 
 * 对角线判断只需要判断横坐标和纵坐标的差是否出现过
 
+## 1129(逻辑题，也可以用set重载<来做)
+
+* pending
+
+* set的做法https://www.liuchuo.net/archives/3848
+
+## 1130(树中序遍历)
+
+* pending
+
+```c++
+res = res + "(";
+if(Tree[root].left != -1) 
+  inorder(Tree[root].left);
+res = res + Tree[root].o;
+if(Tree[root].right != -1) 
+  inorder(Tree[root].right);
+res = res + ")";
+```
+
+* 最后输出的时候从begin()+1到end()-1
+
