@@ -42,6 +42,7 @@ int main() {
         }
     }
     inorder(root);
-    cout << string(res.begin()+1, res.end()-1);
+    if(res.length() == 1) cout << res;
+    else cout << string(res.begin()+1, res.end()-1);
     return 0;
 }

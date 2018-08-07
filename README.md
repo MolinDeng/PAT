@@ -883,13 +883,11 @@ Node *Inster(Node *root, int key) {
 
 ## 1129(逻辑题，也可以用set重载<来做)
 
-* pending
+* 每次更新选出top k，那我就用k+1大小的数组，每次更新若已在数组中，不操作，若不在则放置在最后一位，因为前k位只会与当前更新的这一个值和它们自己相关，在调用sort函数即可
 
 * set的做法https://www.liuchuo.net/archives/3848
 
 ## 1130(树中序遍历)
-
-* pending
 
 ```c++
 res = res + "(";
@@ -902,8 +900,11 @@ res = res + ")";
 ```
 
 * 最后输出的时候从begin()+1到end()-1
+  * 注意判断一下res字符串的长度
 
 ## 1132(字符串操作)
 
-* pending
+* 注意除以0
+
+
 
