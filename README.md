@@ -873,3 +873,7 @@ Node *Inster(Node *root, int key) {
 
 * 连通无向图：|E|>=|V|-1
 
+## 1127(post order+in order => level order zigzag输出)
+
+* 其实只是在输出时增加判断改变顺序即可，每一层记录一个low index和high index，交替从low到high和从high到low
+
