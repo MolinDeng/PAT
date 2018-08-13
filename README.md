@@ -958,3 +958,5 @@ bool cmp(DATA &a, DATA &b) {
 }
 ```
 
+## 1142(最大团判断Clique)
+
