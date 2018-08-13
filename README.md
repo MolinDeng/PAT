@@ -940,3 +940,21 @@ res = res + ")";
 
 ## 1140(字符串处理)
 
+## 1141(map引用非滥用，排序)
+
+* 排序是若通过map找到数据进行比较会很慢，我们可以构造DATA结构保存数据，通过结构体内直接比较，减少时间
+
+```c++
+bool cmp(string &a, string &b) {
+    if(TWS[a].first != TWS[b].first) return TWS[a].first > TWS[b].first;
+    else if(TWS[a].second != TWS[b].second) return TWS[a].second < TWS[b].second;
+    else return a < b;
+}
+//显然后者更快
+bool cmp(DATA &a, DATA &b) {
+    if(a.tws != b.tws) return a.tws > b.tws;
+    else if(a.Ns != b.Ns) return a.Ns < b.Ns;
+    else return a.name < b.name;
+}
+```
+
