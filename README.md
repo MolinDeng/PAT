@@ -968,3 +968,8 @@ bool cmp(DATA &a, DATA &b) {
 
 * 思路简单
 
+## 1145(hash，二次探测法)
+
+* key+i*i % Size; i = 0, 1, 2, ..., Size-1
+* 查找次数不太理解
+
