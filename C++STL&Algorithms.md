@@ -276,3 +276,27 @@ make_heap(v.begin(), v.end(), greater<int>());//最小堆
 ```
 
 ## min_element和max_element都重载小于号
+
+## 二分法
+
+* `< ` 和 `<=`的区别就是lower_bound和upper_bound的区别
+
+```c++
+int left = 0, right = N, l, r;
+while(left < right) {
+  int mid = (left + right) / 2;
+  if(v[mid] < val)
+    left = mid + 1;
+  else right = mid;
+  l = left;// find the first >= val
+}
+left = 0; right = v1.size();
+while(left < right) {
+  int mid = (left + right) / 2;
+  if(v[mid] <= val) 
+    left = mid + 1;
+  else right = mid;
+  r = left;// left is the pos of the first key > val
+}
+```
+
