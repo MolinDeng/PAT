@@ -1,62 +1,77 @@
-#include <cstdio>
 #include <iostream>
-#include <algorithm>
-#include <map>
-#include <string>
+#include <cstdio>
+#include <cstdlib>
 #include <vector>
-
+#include <string>
+#include <algorithm>
+#include <climits>
+#include <map>
+#define INF INT_MAX
 using namespace std;
 
-map<string, int> weights;
-map<string, string> gang_set;
-map<string, int> totweights;
-map<string, vector<string> > res;
-string gfind(string s) {
-    if(gang_set.find(s) == gang_set.end()) gang_set[s] = "-1";
-    if(atoi(gang_set[s].c_str()) < 0) return s;
-    return gang_set[s] = gfind(gang_set[s]);
+vector<vector<int> > e(2010, vector<int>(2010, INF));
+vector<int> IDS, T(2010, 0), visited(2010, 0);
+map<string, bool> seen;
+map<int, string> i2s;
+map<string, int> s2i;
+int tot_T, maxT, maxID, cnt, idxN = 0;
+
+int alloc_idx(string s) {
+    s2i[s] = idxN;
+    i2s[idxN] = s;
+    return idxN++;
 }
-void union_by_size(string root1, string root2) {
-    root1 = gfind(root1); root2 = gfind(root2);
-    if(root1 == root2) return;
-    int n1 = atoi(gang_set[root1].c_str());
-    int n2 = atoi(gang_set[root2].c_str());
-    totweights[root1] += totweights[root2];
-    totweights.erase(root2);
-    gang_set[root2] = root1;
-    gang_set[root1] = to_string(n1+n2);
-}
-bool cmp(string a, string b) {
-    return weights[a] < weights[b];
+void DFS(int u) {
+    if(visited[u]) return;
+    visited[u] = true;
+    cnt++;
+    if(T[u] > maxT) {
+        maxID = u; 
+        maxT = T[u];
+    }
+    for(auto v : IDS) {
+        if(e[u][v] < INF) {
+            tot_T += e[u][v];
+            DFS(v);
+        }
+    }
 }
 int main() {
-    int threshold, N, cnt = 0;
-    scanf("%d %d", &N, &threshold);
+    int N, K;
+    scanf("%d %d", &N, &K);
     while(N--) {
-        char a[3], b[3];
-        int L;
-        scanf("%s %s %d", a, b, &L);
-        weights[a] += L;
-        weights[b] += L;
-        union_by_size(a, b);
-        totweights[gfind(a)] += L;
+        char a[5], b[5];
+        int t, ai, bi;
+        scanf("%s%s%d", a, b, &t);
+        if(!seen[a]) {
+            ai = alloc_idx(a);
+            IDS.push_back(ai);
+            seen[a] = true;
+        }
+        else ai = s2i[a];
+        if(!seen[b]) {
+            bi = alloc_idx(b);
+            IDS.push_back(bi);
+            seen[b] = true;
+        }
+        else bi = s2i[b];
+        e[ai][bi] = t;
+        T[ai] += t;
+        T[bi] += t;
+
     }
-    for(auto iter = gang_set.begin(); iter != gang_set.end(); iter++) {
-        string root = gfind(iter->first);
-        if(atoi(gang_set[root].c_str()) < -2 && totweights[root] > threshold) {
-            res[root].push_back(iter->first);
+    vector<pair<string, int> > res;
+    for(auto u : IDS) {
+        tot_T = 0; maxT = -1; maxID = -1; cnt = 0;
+        if(!visited[u]) {
+            DFS(u);
+            if(tot_T > K && cnt > 2) 
+                res.push_back(make_pair(i2s[maxID], cnt));
         }
     }
-    if(res.size() == 0) printf("0");
-    else {
-        vector<string> result;
-        printf("%d\n", res.size());
-        for(auto iter = res.begin(); iter != res.end(); iter++) {
-            result.push_back(*max_element(iter->second.begin(), iter->second.end(), cmp));
-        }
-        sort(result.begin(), result.end());
-        for(auto r : result) 
-            printf("%s %d\n", r.c_str(), -atoi(gang_set[gfind(r)].c_str()));
-    }
+    cout << res.size() << endl;
+    sort(res.begin(), res.end());
+    for(auto id : res) 
+        printf("%s %d\n", id.first.c_str(), id.second);
     return 0;
 }
