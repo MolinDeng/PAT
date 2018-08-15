@@ -275,3 +275,4 @@ auto cmp = [](const int x, const int y) { return x > y;};
 make_heap(v.begin(), v.end(), greater<int>());//最小堆
 ```
 
+## min_element和max_element都重载小于号
