@@ -246,6 +246,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 ## 1025(排序)
 
 * Test 3 timeout可能原因是使用map映射id和各种信息，红黑树查找需要时间，不如vector直接快
+* 直接定义结构体就好了
 
 ## 1026(模拟，queue应用，数据结构设计)
 
