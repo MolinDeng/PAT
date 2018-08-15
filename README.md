@@ -2,10 +2,7 @@
 
 * TODO:
   * 1026 re-define data structure
-  * 1034 ...
   * LC subString & LC subSequence 总结
-  * 1039 学姐的做法
-  * 1047 problem???
   * 1098学姐的做法？
   * 1114找不到bug...
   * 树的遍历顺序之间的关系总结
@@ -351,7 +348,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
 ## 1047(1039的逆过程，大数据查找)
 
-* TODO：test3 not AC
+* easy
 
 ## 1048(查找，二分查找)
 
