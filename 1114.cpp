@@ -1,95 +1,84 @@
 #include <cstdio>
-#include <cstdlib>
 #include <iostream>
-#include <string>
+#include <cstdlib>
 #include <vector>
 #include <algorithm>
-#include <map>
 #include <set>
 
 using namespace std;
-
-struct Person {
-    int pre;
-    int minID;
-    int Me;
+struct DATA {
+    double Me;
     double Area;
-    Person() {
-        pre = -1;
-        minID = 10000;
-        Me = Area = 0;
-    }
 };
-vector<Person> people(10010);
+struct Family {
+    int minID = 10000;
+    int cnt;
+    double Mavg;
+    double Aavg;
+    bool flag = false;
+};
+vector<DATA> d(10000, {0, 0});
+vector<Family> f(10000);
+vector<int> c(10000, -1);
 
-int rfind(int id) {
-    if(people[id].pre < 0) return id;
-    return people[id].pre = rfind(people[id].pre);
+int Find(int x) {
+    if(c[x] < 0) return x;
+    return c[x] = Find(c[x]);
 }
 
 void Union(int a, int b) {
-    int r1 = rfind(a);
-    int r2 = rfind(b);
-    if(r1 != r2) {
-        people[r1].pre += people[r2].pre;
-        people[r2].pre = r1;
-    }
+    int r1 = Find(a);
+    int r2 = Find(b);
+    if(r1 != r2) 
+        c[r2] = r1;
 }
+
 bool cmp(int a, int b) {
-    double avg_area_a = (double)people[a].Area / people[a].pre * (-1);
-    double avg_area_b = (double)people[b].Area / people[b].pre * (-1);
-    if(avg_area_a != avg_area_b) return avg_area_a > avg_area_b;
-    else return a < b;
+    if(f[a].Aavg != f[b].Aavg) return f[a].Aavg > f[b].Aavg;
+    else return f[a].minID < f[b].minID;
 }
 int main() {
     int N;
     scanf("%d", &N);
-    set<int> ids;
+    set<int> IDS;
     while(N--) {
-        int id, fid, mid, k, Me;
-        double Area;
-        vector<int> cids;
+        int id, fid, mid, k, cid;
+        double me, Area;
         scanf("%d %d %d %d", &id, &fid, &mid, &k);
+        IDS.insert(id);
         while(k--) {
-            int cid;
             scanf("%d", &cid);
-            cids.push_back(cid);
+            Union(id, cid);
+            IDS.insert(cid);
         }
-        scanf("%d %lf", &Me, &Area);
-        people[id].minID = id;
-        people[id].Me = Me;
-        people[id].Area = Area;
-        ids.insert(id);
+        scanf("%lf %lf", &me, &Area);
         if(fid != -1) {
             Union(id, fid);
-            ids.insert(fid);
+            IDS.insert(fid);
         }
         if(mid != -1) {
             Union(id, mid);
-            ids.insert(mid);
+            IDS.insert(mid);
         }
-        for(auto cid : cids) {
-            Union(id, cid);
-            ids.insert(cid);
-        }
+        d[id] = {me, Area};
     }
     vector<int> res;
-    vector<bool> inCounted(10010, false);
-    for(auto iter = ids.begin(); iter != ids.end(); iter++) {
-        int root = rfind(*iter);
-        if(!inCounted[root]) {
-            res.push_back(root);
-            inCounted[root] = true;
-        }
-        if(root != *iter) {
-            people[root].Me += people[*iter].Me;
-            people[root].Area += people[*iter].Area;
-        }
-        people[root].minID = min(people[root].minID, *iter);
+    for(set<int>::iterator iter = IDS.begin(); iter != IDS.end(); iter++) {
+        int root = Find(*iter);
+        f[root].cnt++;
+        f[root].minID = min(f[root].minID, *iter);
+        f[root].Aavg += d[*iter].Area;
+        f[root].Mavg += d[*iter].Me;
+        if(!f[root].flag) res.push_back(root);
+        f[root].flag = true;
+    }
+    for(auto i : res) {
+        f[i].Aavg /= f[i].cnt;
+        f[i].Mavg /= f[i].cnt;
     }
     sort(res.begin(), res.end(), cmp);
     printf("%lld\n", res.size());
     for(auto id : res) 
-        printf("%04d %d %.3lf %.3lf\n", people[id].minID, people[id].pre*(-1), (double)people[id].Me/people[id].pre*(-1), (double)people[id].Area/people[id].pre*(-1));
+        printf("%04d %d %.3lf %.3lf\n", f[id].minID, f[id].cnt, f[id].Mavg, f[id].Aavg);
     return 0;
-}   
+}

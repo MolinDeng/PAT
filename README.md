@@ -4,7 +4,6 @@
   * 1026 re-define data structure
   * LC subString & LC subSequence 总结
   * 1098学姐的做法？
-  * 1114找不到bug...
   * 树的遍历顺序之间的关系总结
     * 有两种写法
       * 计算根下标：1020、1086学姐的做法
@@ -776,8 +775,6 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * so easy
 
 ## 1114(并查集)
-
-* TODO：find bug
 
 ## 1115(BFS，建立BST)
 
