@@ -1,43 +1,36 @@
 #include <cstdio>
 #include <iostream>
+#include <cstdlib>
 #include <vector>
 #include <algorithm>
-#include <functional>
-#include <map>
-
-#define MAX_N 101
+#include <cmath>
 
 using namespace std;
-
-map<int, vector<int> > tree;
-int level_cnt[MAX_N] = {0};
-int max_level = -1;
-
-void DFS(int level, int root) {
-    max_level = max(level, max_level);
-    if(tree[root].empty()) {
-        level_cnt[level]++;
-        return;
-    }
-    for(auto son : tree[root]) {
-        DFS(level+1, son);
-    }
+vector<int> level(200, 0);
+vector<vector<int> > tree(101);
+int max_d = -1;
+void DFS(int d, int fid) {
+    max_d = max(max_d, d);
+    if(tree[fid].empty()) 
+        level[d]++;  
+    for(auto cid : tree[fid]) 
+        DFS(d + 1, cid);
 }
-int main(int argc, char const *argv[])
-{
-    int N, M, id, K, sid;
+int main() {
+    int N, M;
     scanf("%d %d", &N, &M);
     while(M--) {
-        scanf("%d %d",&id ,&K);
-        while(K--) {
-            scanf("%d", &sid);
-            tree[id].push_back(sid);
+        int fid, k, cid;
+        scanf("%d %d", &fid, &k);
+        while(k--) {
+            scanf("%d", &cid);
+            tree[fid].push_back(cid);
         }
     }
     DFS(0, 1);
-    printf("%d", level_cnt[0]);
-    for(int i = 1; i <= max_level; i++)   
-        printf(" %d", level_cnt[i]);
-    
+    for(int i = 0 ; i <= max_d; i++) {
+        if(i != 0) printf(" ");
+        printf("%d", level[i]);
+    }
     return 0;
 }
