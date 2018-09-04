@@ -149,6 +149,8 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 ```
 
 * idea from https://www.cnblogs.com/weedboy/p/7244819.html
+* **<u>还有一个非常重要重要地方</u>**
+  * 判断N2_d < 0（溢出）一定要在判断N2_d < N1_d前，不然误以为小于，其实是溢出造成的大于
 
 ## 1011(查找元素，优先队列应用)
 
