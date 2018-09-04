@@ -161,10 +161,11 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 * sort grades rather than sort ID
 * 88 87 87 55，the rank is 1,2,2,4
 
-## 1013(图的遍历，统计连通分量的个数，DFS，Disjoint Set)
+## 1013(图的遍历，DFS统计连通分量的个数)
 
 * Find the # of sub-connected component连通分量的个数
 * DFS or BFS
+* 不能用并查集，这是实际连接，不是虚拟连接
 
 ## 1014(queue应用，模拟)
 
