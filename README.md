@@ -77,7 +77,6 @@
   }
   ```
 
-  
 
 ## 1004(DFS, BFS, 层序遍历)
 
@@ -103,8 +102,9 @@
 ## 1006(模拟，优先队列应用)
 
 * using map&priority_queue
+* 加速方法：将id映射成独立的数字id，存入结构体数组，通过直接的数组访问与比较加速
 
-## 1007(DP，最大连续子序列之和)
+## 1007(最大连续子序列之和)
 
 * online algorithm O(N)
 
@@ -122,6 +122,8 @@ else if(curr_sum > max_sum || (curr_sum == 0 && end == N - 1)) {
   ```
 
   If this condition is omitted, the *end* is 5(that is N -1), which is incorrect.
+
+* v2中调整了两个判断的顺序，思路简单了许多，关键点在于将maxSum初始化为负数，这样一来，+0也可以得到记录，输出时判断正负即可
 
 ## 1008(数学问题)
 
