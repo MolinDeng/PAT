@@ -170,6 +170,7 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 ## 1014(queue应用，模拟)
 
 * defining a good data structure is vital important.
+* 这道模拟题中顾客是已经全部都在队列中的了
 
 ## 1015(素数，计算reverse number)
 
@@ -219,6 +220,8 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
   > **先从一个结点dfs后保留最高高度拥有的结点们，然后从这些结点中的其中任意一个开始dfs得到最高高度的结点们，这两个结点集合的并集就是所求** 
 
 * Idea from https://www.liuchuo.net/archives/2348
+
+* 这其实是一个逆向思维，最深叶子就当然是最深的root
 
 ## 1022(map应用)
 
