@@ -2,13 +2,6 @@
 
 * TODO:
   * 1026 re-define data structure
-  * LC subString & LC subSequence 总结
-  * 1098学姐的做法？
-  * 树的遍历顺序之间的关系总结
-    * 有两种写法
-      * 计算根下标：1020、1086学姐的做法
-      * 交换元素，1086我的做法
-  * 01背包问题总结
 * Goal: ALL AC
 
 ## 1001(字符串处理)
