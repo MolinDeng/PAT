@@ -16,3 +16,30 @@ int main(int argc, char const *argv[])
     printf("%d", ans);
     return 0;
 }
+
+/*
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+int main() {
+    long long N, sum = 0, p = 1;
+    cin >> N;
+    while(N / p) {
+        long long h = N / (p * 10);
+        long long l = N % p;
+        long long cur = N / p % 10;
+        if(cur == 0) sum += h * p;
+        else if(cur == 1) sum += h * p + l + 1;
+        else sum += (h + 1) * p;
+        p *= 10;
+    }
+    cout << sum;
+    return 0;
+}
+*/

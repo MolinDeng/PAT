@@ -46,6 +46,46 @@ else if(d[u] + e[u][v] == d[v]) {
 ### 二分法
 
 * PAT 1010
+* PAT 1044
+* PAT 1048，题中要求exact，所以可以调用binary_search
+* `< ` 和 `<=`的区别就是lower_bound和upper_bound的区别
+
+```c++
+int left = 0, right = N, l, r;
+while(left < right) {
+  int mid = (left + right) / 2;
+  if(v[mid] < val)
+    left = mid + 1;
+  else right = mid;
+  l = left;// find the first >= val
+}
+left = 0; right = v1.size();
+while(left < right) {
+  int mid = (left + right) / 2;
+  if(v[mid] <= val) 
+    left = mid + 1;
+  else right = mid;
+  r = left;// left is the pos of the first key > val
+}
+```
+
+### LCS
+
+* sub-string必须是连续的PAT 1040
+
+  $C[i][j] = C[i == 0?0:i-1][j ==0?0:j-1] + 1\quad when\quad s1[i]==s2[j]$
+
+  $C[i][j] = 0\quad when \quad s1[i]\neq s2[j]$
+
+* sub-sequence符合顺序即可
+
+  ![1532590220540](assets/1532590220540.png)
+
+* sub-sequence循序重复PAT 1045
+
+  $C[i][j] = max(C[i][j-1], C[i-1][j])\quad when\quad s1[i] \neq s2[j]$
+
+  $C[i][j] = max(C[i][j-1], C[i-1][j])+1\quad when\quad s1[i] = s2[j]$
 
 ### Tree Traversals
 
@@ -84,6 +124,35 @@ void to_pre(int root, int left, int right) {
         if(in[i] == post[root]) break;
     to_pre(root - (right - i + 1), left, i - 1);
     to_pre(root - 1, i + 1, right);
+}
+```
+
+* pre + in TO post
+
+```c++
+// to_post(0, 0, N-1);
+void to_post(int root, int left, int right) {
+    if(left > right) return;
+    level[idx] = pre[root];
+    int i;
+    for(i = left; i < right; i++) 
+        if(in[i] == pre[root]) break;
+    to_post(2*idx + 1, root + 1, left, i - 1);
+    to_post(2*idx + 2, root + (i - left + 1), i + 1, right);
+}
+```
+
+* pre + in TO level
+
+```c++
+void to_level(int idx, int root, int left, int right) {
+    if(left > right) return;
+    post.insert(post.begin(), pre[root]);
+    int i;
+    for(i = left; i < right; i++) 
+        if(in[i] == pre[root]) break;
+    to_level(root + (i - left + 1), i + 1, right);
+    to_level(root + 1, left, i - 1);
 }
 ```
 
