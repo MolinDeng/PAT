@@ -26,6 +26,7 @@ int main() {
             }
         }
         printf("%s\n", curr == N? "YES" : "NO");
+        // printf("%s\n", SS.empty() ? "YES" : "NO");
     }
     return 0;
 }
