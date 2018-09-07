@@ -114,7 +114,12 @@ while(left <= right) {
 
 * PAT 1020
 * PAT 1043
+* PAT 1064  CBST
 * PAT 1086
+* PAT 1110 CBT，通过层序遍历判断是否是CBT
+* PAT 1119 **<u>前序后序转中序</u>**
+* PAT 1127
+* PAT 1147
 
 ```c++
 vector<int> in;
@@ -157,7 +162,7 @@ void to_pre(int root, int left, int right) {
 * pre + in TO level
 
 ```c++
-// to_level(0, 0, 0, N-1) to invoke
+// to_level(0, N-1, 0, N-1) to invoke
 void to_level(int idx, int root, int left, int right) {
     if(left > right) return;
     level[idx] = pre[root];
@@ -245,6 +250,30 @@ void convert(int left, int right) {
     }
 }
 ```
+
+* 层序遍历简单写法
+
+```c++
+int j = 0;
+while(level.size() != N) {
+    Node *front = level[j++];
+    if(front->left != NULL) res.push_back(front->left);
+    if(front->right != NULL) res.push_back(front->right);
+}
+```
+
+* 判断CBT
+
+```c++
+int i = 0;
+for( ; res[i] != -1; i++) {
+    res.push_back(Tree[res[i]].left);
+    res.push_back(Tree[res[i]].right);
+}
+i == N ? Yes : No
+```
+
+
 
 ### GCD
 
