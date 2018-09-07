@@ -16,18 +16,6 @@ void KP(int num, int depth, int sum) {
                 res = tmp;
                 maxsum = sum;
             }
-            // else if(sum == maxsum) {
-            //     int ressum = 0, tmpsum = 0;
-            //     for(int i = 0; i < tmp.size(); i++) {
-            //         ressum += res[i];
-            //         tmpsum += tmp[i];
-            //         if(tmpsum > ressum) {
-            //             res = tmp;
-            //             break;
-            //         }
-            //         else if(tmpsum < ressum) break;
-            //     }
-            // }
         }
         return;
     }
