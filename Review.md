@@ -112,6 +112,10 @@ while(left <= right) {
 
 ### Tree Traversals
 
+* PAT 1020
+* PAT 1043
+* PAT 1086
+
 ```c++
 vector<int> in;
 vector<int> pre;
@@ -150,32 +154,32 @@ void to_pre(int root, int left, int right) {
 }
 ```
 
+* pre + in TO level
+
+```c++
+void to_level(int idx, int root, int left, int right) {
+    if(left > right) return;
+    level[idx] = pre[root];
+    int i;
+    for(i = left; i < right; i++) 
+        if(in[i] == pre[root]) break;
+    to_level(2*idx + 1, root + 1, left, i - 1);
+    to_level(2*idx + 2, root + (i - left + 1), i + 1, right);
+}
+```
+
 * pre + in TO post
 
 ```c++
 // to_post(0, 0, N-1);
 void to_post(int root, int left, int right) {
     if(left > right) return;
-    level[idx] = pre[root];
-    int i;
-    for(i = left; i < right; i++) 
-        if(in[i] == pre[root]) break;
-    to_post(2*idx + 1, root + 1, left, i - 1);
-    to_post(2*idx + 2, root + (i - left + 1), i + 1, right);
-}
-```
-
-* pre + in TO level
-
-```c++
-void to_level(int idx, int root, int left, int right) {
-    if(left > right) return;
     post.insert(post.begin(), pre[root]);
     int i;
     for(i = left; i < right; i++) 
         if(in[i] == pre[root]) break;
-    to_level(root + (i - left + 1), i + 1, right);
-    to_level(root + 1, left, i - 1);
+    to_post(root + (i - left + 1), i + 1, right);
+    to_post(root + 1, left, i - 1);
 }
 ```
 
