@@ -16,11 +16,11 @@ int main() {
     sort(v.begin(), v.end());
     int res = -1;
     for(int i = 0; i < N; i++) {
-        int left = i, right = N-1, mid;
-        while(left <= right) {
-            mid = (left + right) / 2;
+        int left = i, right = N - 1;
+        while(left < right) {
+            int mid = (left + right) / 2;
             if(v[mid] <= v[i] * p) left = mid + 1;
-            else right = mid - 1;
+            else right = mid;
         }
         res = max(res, left - i);
     }
