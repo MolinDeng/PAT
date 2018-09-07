@@ -7,18 +7,13 @@
 using namespace std;
 
 int main() {
-    int N, res;
+    int N, res = 0;
     cin >> N;
     vector<int> M(N);
     for(int i = 0; i < N; i++)
         scanf("%d", &M[i]);
     sort(M.begin(), M.end(), greater<int>());
-    for(int i = min(M[0], N); i >= 0; i--) {
-        if(M[i-1] > i) {
-            res = i;
-            break;
-        }
-    }
+    while(res < N && M[res] > res + 1) res++;
     cout << res;
     return 0;
 }
