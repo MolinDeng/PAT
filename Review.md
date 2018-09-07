@@ -157,6 +157,7 @@ void to_pre(int root, int left, int right) {
 * pre + in TO level
 
 ```c++
+// to_level(0, 0, 0, N-1) to invoke
 void to_level(int idx, int root, int left, int right) {
     if(left > right) return;
     level[idx] = pre[root];
@@ -183,6 +184,68 @@ void to_post(int root, int left, int right) {
 }
 ```
 
+* 也有两种写法，最右边的范围不同
+
+```c++
+// to_post(0, 0, N-1);
+void to_post(int root, int left, int right) {
+    if(left > right) return;
+    post.insert(post.begin(), pre[root]);
+    int i;
+    for(i = left; i < right; i++) 
+        if(in[i] == pre[root]) break;
+    to_post(root + (i - left + 1), i + 1, right);
+    to_post(root + 1, left, i - 1);
+}
+// to_post(0, 0, N);
+void to_post(int root, int left, int right) {
+    if(left >= right) return;
+    post.insert(post.begin(), pre[root]);
+    int i;
+    for(i = left; i < right; i++) 
+        if(in[i] == pre[root]) break;
+    to_post(root + (i - left + 1), i + 1, right);
+    to_post(root + 1, left, i);
+}
+```
+
+* to_post也可以这样写
+
+```c++
+// to_post(0, 0, N);
+void to_post(int root, int left, int right) {
+    if(left >= right) return;
+    int i;
+    for(i = left; i < right; i++) 
+        if(in[i] == pre[root]) break;
+    to_post(root + 1, left, i);
+    to_post(root + (i - left + 1), i + 1, right);
+    post.push_back(pre[root]);
+}
+```
+
+* 另一种改变元素顺序的写法，传递参数更少，不用计算根在哪
+
+```c++
+void convert(int left, int right) {
+    if(left >= right) return;
+    if(right - left == 1) {
+        post.insert(post.begin(), in[left]);
+        return;
+    } else {
+        int root = pre[left], i;
+        for(i = left; i < right; i++) {
+            if(in[i] == root) break;
+        }
+        pre.erase(pre.begin()+left);
+        pre.insert(pre.begin() + i, root);//将root放在i位置
+        post.insert(post.begin(), root);
+        convert(i+1, right);
+        convert(left, i);
+    }
+}
+```
+
 ### GCD
 
 ```c++
@@ -201,3 +264,16 @@ int gcd(int a, int b) // a > b, a != 0, b != 0
 4. ```#define _CRT_SECURE_NO_WARNINGS```
 5. PAT1068背包问题
 6. PAT1071 Speech Patterns中通过读字符提取token，当遇到结束符的时候，token不为空，还需要在跳出循环后考虑token
+7. DFS+回溯搜索最优路径模板
+
+```c++
+void DFS(int u) {
+    tmp.push_back(u);
+    if(达到计算条件) {
+		...
+    }
+    for(auto v : path[u]) DFS(v);
+    tmp.pop_back();
+}
+```
+

@@ -29,10 +29,14 @@ void DFS(int Sp) {
             rcredit = credit;
         }
     }
-    for(auto u : path[Sp]) {
+    for(auto u : path[Sp]) DFS(u);
+    tmp.pop_back();
+    /* // also ac
+    for(auto u = path[Sp]) {
         DFS(u);
         tmp.pop_back();
     }
+    */
 }
 int main() {
     int N, Sp, M;
