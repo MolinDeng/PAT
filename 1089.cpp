@@ -35,14 +35,6 @@ int main() {
         }
     }
     else {
-        /*也可以模拟排序
-        int len = 1;
-        while(A != B) {
-            len *= 2;
-            for(int i = 0; i < N; i+=len) 
-                sort(A.begin()+i, A.begin()+(i+len >= N ? N : i+len));
-        }
-        len*=2;*/
         //判断长度tricky的方法
         int len = 2;
         flag = true;
