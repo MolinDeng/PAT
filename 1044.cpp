@@ -55,15 +55,13 @@ int main() {
         values[i] += values[i - 1];
     }
     for(int i = 1; i < N + 1; i++) {
-        int left = i, right = N;
+        int left = i, right = N + 1;
         while(left < right) {
             int mid = (left + right) / 2;
             if(values[mid] - values[i - 1] >= M)
                 right = mid;
             else left = mid + 1;
-            cout << "mid " << mid << " left " << left << " right " << right << endl;
         }
-        cout << "out" << endl;
         if(values[right] - values[i - 1] >= M) {
             if(values[right] - values[i - 1] - M < min_lost) {
                 res.clear();
@@ -74,7 +72,7 @@ int main() {
             }
         }
     }
-    //sort(res.begin(), res.end(), cmp);
+    sort(res.begin(), res.end(), cmp);
     for(auto r : res) printf("%ld-%ld\n", r.first, r.second);
     return 0;
 }
