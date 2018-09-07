@@ -69,6 +69,29 @@ while(left < right) {
 }
 ```
 
+* 二分法有两种写法
+
+```c++
+// 下标从0到N-1
+int left = 0, right = N;
+while(left < right) {
+  int mid = (left + right) / 2;
+  if(v[mid] < val)
+    left = mid + 1;
+  else right = mid;
+  target = left;// find the first >= val
+}
+
+int left = 0, right = N-1;
+while(left <= right) {
+    int mid = (left + right) / 2;
+    if(v[mid] < val)
+        left = mid + 1;
+    else right = mid - 1;
+    target = left;// find the first >= val
+}
+```
+
 ### LCS
 
 * sub-string必须是连续的PAT 1040
@@ -156,10 +179,21 @@ void to_level(int idx, int root, int left, int right) {
 }
 ```
 
+### GCD
 
+```c++
+int gcd(int a, int b) // a > b, a != 0, b != 0
+{
+    if(a % b == 0) return b;
+    gcd(b, a % b);
+}
+```
 
 ## Others
 
 1. 循环中不能以变化的长度作为判断跳出条件
 2. 当一个数很大的时候，要增加<0的判断，因为可能会溢出，如PAT1010
 3. 有向图遍历每条边PAT1034
+4. ```#define _CRT_SECURE_NO_WARNINGS```
+5. PAT1068背包问题
+6. PAT1071 Speech Patterns中通过读字符提取token，当遇到结束符的时候，token不为空，还需要在跳出循环后考虑token
