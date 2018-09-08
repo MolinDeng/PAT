@@ -25,10 +25,10 @@ vector<vector<int> > path(N);
 // in loop
 if(d[u] + e[u][v] < d[v]) {
     path[v].clear();
-    path.push_back(u);
+    path[v].push_back(u);
 }
 else if(d[u] + e[u][v] == d[v]) {
-    path.push_back(u);
+    path[v].push_back(u);
 }
 ```
 
@@ -257,8 +257,8 @@ void convert(int left, int right) {
 int j = 0;
 while(level.size() != N) {
     Node *front = level[j++];
-    if(front->left != NULL) res.push_back(front->left);
-    if(front->right != NULL) res.push_back(front->right);
+    if(front->left != NULL) level.push_back(front->left);
+    if(front->right != NULL) level.push_back(front->right);
 }
 ```
 
@@ -273,15 +273,40 @@ for( ; res[i] != -1; i++) {
 i == N ? Yes : No
 ```
 
+### is_prime
 
+```c++
+bool is_prime(int x) {
+    if(x < 2) return false;
+    else if(x == 2 || x == 3) return true;
+    else {
+        for(int i = 2; i*i <= x; i++) 
+            if(x % i == 0) return false;
+    }
+    return true;
+}
+```
 
-### GCD
+### Prime table
+
+```c++
+vector<bool> prime_tab(N, true);
+for(int i = 2; i*i < N; i++) {
+    for(int j = 2; j*i < N; j++)
+        prime_tab[i*j] = false;
+}
+```
+
+### GCD&LCM
 
 ```c++
 int gcd(int a, int b) // a > b, a != 0, b != 0
 {
     if(a % b == 0) return b;
-    gcd(b, a % b);
+    return gcd(b, a % b);
+}
+int LCM(int a, int b) {
+    return a * b / gcd(a, b);
 }
 ```
 
