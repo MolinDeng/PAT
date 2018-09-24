@@ -72,7 +72,6 @@ while(left < right) {
 * 二分法有两种写法
 
 ```c++
-// 下标从0到N-1
 int left = 0, right = N;
 while(left < right) {
   int mid = (left + right) / 2;
@@ -81,7 +80,7 @@ while(left < right) {
   else right = mid;
   target = left;// find the first >= val
 }
-
+// 下标从0到N-1
 int left = 0, right = N-1;
 while(left <= right) {
     int mid = (left + right) / 2;
