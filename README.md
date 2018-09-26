@@ -345,6 +345,8 @@ for(int i = len - 1; i >= 0; --i) {
 return res;
 ```
 
+* string.substr()中两个参数一个是起始下标，一个是长度
+
 ## 1041(queue应用，Hash散列)
 
 * 第一次见到的入队，出现过两次以上的标记为seen，再从队列顶部查看，如果seen，则出队，找到第一个非seen标记即为所求
