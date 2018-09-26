@@ -317,6 +317,34 @@ else if(N2_d > N1_d || N2_d < 0) right = mid - 1;
 
   $C[i][j] = 0\quad when \quad s1[i]\neq s2[j]$
 
+* 上述转移方程是错误的
+
+  * 对于aacdefcaa，输出是aac
+
+  ##### 正确的DP
+
+- 给出一个字符串s，求s的最长回文字串的长度
+- `dp[i][j]`表示s[i]到s[j]所表示的字串是否是回文字串。只有0和1
+- 递推方程：
+  - 当s[i] == s[j] : `dp[i][j] = dp[i+1][j-1]`
+  - 当s[i] != s[j] : `dp[i][j] =0`
+  - 边界情况是当长度为1或2时：`dp[i][j] = 1, dp[i][i+1] = (s[i] == s[i+1]) ? 1 : 0`
+
+```c++
+int len = s.length();
+vector<vector<bool> > dp(len, vector<bool>(len, false));
+for(int i = len - 1; i >= 0; --i) {
+    for(int j = i; j < len; ++j) {
+        if(s[i] == s[j] && (j - i < 3 || dp[i+1][j-1])) {
+            dp[i][j] = true;
+            if(j - i + 1 > res.length()) 
+                res = s.substr(i, j - i + 1);
+        }
+    }
+}
+return res;
+```
+
 ## 1041(queue应用，Hash散列)
 
 * 第一次见到的入队，出现过两次以上的标记为seen，再从队列顶部查看，如果seen，则出队，找到第一个非seen标记即为所求
