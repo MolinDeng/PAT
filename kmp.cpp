@@ -1,3 +1,4 @@
+// 匹配过程的时间复杂度为O(n)，算上计算next的O(m)时间，KMP的整体时间复杂度为O(m + n)
 #include <iostream>
 #include <vector>
 #include <string>
