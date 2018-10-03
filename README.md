@@ -8,4 +8,3 @@ Everyday programing！ See solutions on [My blog](http://molindeng.github.io)
 
 * TODO:
   * 1026 re-define data structure
-
