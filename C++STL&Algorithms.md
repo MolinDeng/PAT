@@ -28,6 +28,9 @@ struct node {
     }
 }
 priority_queue<node> q;
+//使用lamda表达式自定义优先级
+auto cmp = [](const int a, const int b){return a < b;};
+priority_queue<int, vector<int>, decltype(cmp)> q(cmp);
 ```
 
 ## Map
