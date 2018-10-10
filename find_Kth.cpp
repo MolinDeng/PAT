@@ -50,18 +50,3 @@ int main() {
     cout << v[K-1];
     return 0;
 }
-
-ListNode* ReverseList(ListNode* pHead) {
-    ListNode *root=pHead; 
-    ListNode *pre=NULL;  
-    ListNode *next=NULL;
-    if(pHead==NULL) return NULL; 
-    while(root->next){  
-        next=root->next;   
-        root->next=pre;      
-        pre=root;       
-        root=next;     
-    }    
-    root->next=pre; 
-    return root; 
-} 
